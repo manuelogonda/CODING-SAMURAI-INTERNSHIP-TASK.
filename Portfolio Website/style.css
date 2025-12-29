@@ -151,6 +151,9 @@ body {
 .hire-btn {
     background-color: #4CAF50;
     color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 15px;
 }
 .hire-btn:hover{
  background-color: #09880d;
@@ -161,16 +164,7 @@ body {
 }
 
 /*My Profile image styling*/
-.profile-photo {
-    width: 500px;
-    height: 600px;
-    overflow: hidden;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    flex-shrink: 0; 
-}
+
 
 .profile-photo img {
     object-fit: cover; 
@@ -191,14 +185,11 @@ body {
 
 .profile-photo:hover {
     transform: scale(1.05);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-.bgdark .profile-photo {
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
 .bgdark .profile-photo img {
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow:  0 20px 40px rgba(228, 222, 222, 0.4);
 }
 
 /* About Me Section */
@@ -260,10 +251,9 @@ body {
     gap: 2rem;
     padding: 4rem 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 5rem auto;
     max-width: 100%;
     height: auto;
-    background-color: rgba(0,0,0,0.1);
 }
 .services {
     background-color: rgba(255,255,255,0.8);
@@ -304,6 +294,7 @@ body {
     overflow: hidden;
     transition: max-height 0.4s ease-out;
     margin: 1rem 0;
+    
 }
 .extra-content:not(.expanded) {
     max-height: 250px; /* Adjust based on content */
@@ -332,4 +323,60 @@ body {
 
 .bgdark .services h2 {
     color: #4CAF50;;
+}
+
+/*skills section styling*/
+#skills{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 5rem auto;
+    max-width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.1);
+}
+.skills{
+    background-color: rgba(255,255,255,0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.skills:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+.skills h4{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4CAF50;
+}
+.skills ul{
+    padding-left: 1.5rem;
+}
+.skills ul li{
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+.skills-h3{
+    text-align: center;
+    font-size: 3rem;
+}
+.bgdark .skills-h3{
+    color: #4CAF50;;
+}
+.bgdark .skills {
+    background: rgba(44,62,80,0.8);
+    color: #ecf0f1;
+}
+.bgdark .skills h4 {
+    color: #4CAF50;;
+}
+.bgdark .skills ul li {
+    color: #ecf0f1;
 }

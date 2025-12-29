@@ -53,6 +53,7 @@ typeRole();
 
 
 // Toggle extra content in services section
+
 const toggleButtons = document.querySelectorAll('.toggle-btn');
 toggleButtons.forEach(button => {
     button.addEventListener('click', () => {
