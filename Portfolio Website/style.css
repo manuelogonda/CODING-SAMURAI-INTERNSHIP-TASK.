@@ -71,8 +71,11 @@ body {
     gap: 1.5rem; 
 }
 #summary-what-i-do > p{
-    font-size: clamp(2.5rem, 2.5vw, 2rem);
+    font-size: 2rem;
     font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
 }
 
 
@@ -211,12 +214,13 @@ body {
 .about-h2{
     margin-bottom: 1rem;
     text-align: center;
-    font-size: 4.5rem;
+    font-size: 3rem;
 }
 .about-p{
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     text-align: center;
+    letter-spacing: 1px;
 }
 #about-me-img{
     border-radius: 1rem 1rem 0rem 0rem;
@@ -240,7 +244,92 @@ body {
     color: rgba(76, 175, 80, 0.9);
 
 }
+.bgdark .about-h2{
+    color: #4CAF50;
+}
 #about-me-text p{
     font-size: 1.5rem;
     line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+/* Services Section */
+#services {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.1);
+}
+.services {
+    background-color: rgba(255,255,255,0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.services:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4CAF50;
+}
+.services p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+.service-h3{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 3rem;
+}
+.bgdark .service-h3{
+    color: #4CAF50;;
+}
+.service-p{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.extra-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    margin: 1rem 0;
+}
+.extra-content:not(.expanded) {
+    max-height: 250px; /* Adjust based on content */
+}
+
+.toggle-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+}
+
+.bgdark .services {
+    background: rgba(44,62,80,0.8);
+    color: #ecf0f1;
+}
+
+.bgdark .services h2 {
+    color: #4CAF50;;
 }

@@ -50,3 +50,16 @@ function typeRole() {
 }
 
 typeRole();
+
+
+// Toggle extra content in services section
+const toggleButtons = document.querySelectorAll('.toggle-btn');
+toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const extraContent = button.previousElementSibling;
+        extraContent.classList.toggle('expanded');
+        button.textContent = extraContent.classList.contains('expanded') 
+            ? 'Learn More' 
+            : 'Show Less';
+    });
+});
