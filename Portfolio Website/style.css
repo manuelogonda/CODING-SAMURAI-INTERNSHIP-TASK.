@@ -44,8 +44,8 @@ body {
     cursor: pointer; 
     padding: 0.5rem 1rem;
     font-size: 1.4rem;
-    transition: background 0.3s;
     color: #2c3e50;
+    transition: color 0.2s ease, background 0.2s ease;
 }
 
 #nav-links ul li:hover {
@@ -519,4 +519,30 @@ body {
     flex-direction: row;
     gap: 2rem;
     justify-content: space-evenly;
+}
+/*footer styling*/
+#footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+#footer p {
+    font-size: 1rem;
+    color: #777;
+}
+.footer-svg{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1rem;
+}
+#footer svg {
+    width: 34px;
+    height: 34px;
+    fill: #777;
+    transition: fill 0.3s ease;
+}
+.bgdark #footer p {
+    color: #fff;
 }
