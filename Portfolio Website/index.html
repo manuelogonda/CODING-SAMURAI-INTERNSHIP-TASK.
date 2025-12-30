@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emmanuel's Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;1,100;1,500&family=Barlow+Semi+Condensed:wght@400;500;600&family=Cabin+Condensed:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald&family=Permanent+Marker&family=Poppins:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+</style>
 </head>
 
 <body>
     <nav id="nav-bar">
         <div>
-            <p id="name">Emmanuel Odhiambo</p>
+            <p id="name">Emmanuel <span class="highlight">Odhiambo</span> </p>
         </div>
         <div id="nav-links">
             <ul>
-                <li>About</li>
-                <li>Skills</li>
-                <li>Services</li>
-                <li>Projects</li>
-                <li>Contact</li>
+                <li id="about-show">About</li>
+                <li id="skill-show">Skills</li>
+                <li id="service-show">Services</li>
+                <li id="projects-show">Projects</li>
+                <li id="contact-show">Contact</li>
             </ul>
         </div>
         <div id="nav-buttons">
@@ -70,9 +73,7 @@
                         </svg>
                     </a>
                 </div>
-                <div id="cv-download">
-
-                </div>
+                
             </div>
               <div id="my-image">
             <figure  class="profile-photo">
@@ -92,7 +93,7 @@
 <figure>
     <img src="about-me-mg.jpg" alt="A working space with a laptop, notebook, and coffee cup"
         width="400" height="500">
-        <figcaption>My Workspace setup</figcaption>
+        <figcaption>A Workspace setup</figcaption>
     </img>
 </figure>
  </div>
@@ -235,28 +236,64 @@
         <button class="toggle-btn">Learn More</button>
      </div>
     </section>
+    <h3 class="projets-h4">Projects</h3>
     <section id="projects">
-        <h3 class="projets-h4">Projects</h3>
         <div class="projects-header">
             <h4 class="projects-h3">My Projects</h4>
              <div class="projects-sections">
-                <span id="frontend">Frontend</span>
-                <span id="backend">Backend</span>
-                <span id="fullstack">Fullstack</span>
+                <span class="filter-btn active" data-filter="all">All</span>
+      <span class="filter-btn" data-filter="frontend">Frontend</span>
+      <span class="filter-btn" data-filter="backend">Backend</span>
+      <span class="filter-btn" data-filter="fullstack">Fullstack</span>
              </div>
         </div>
         <div class="projects">
+        <article class="project-card" data-category="frontend">
+      <h5>Responsive Portfolio</h5>
+      <p>Personal portfolio with responsive layout and dark mode.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">View Live</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </article>
         
-        </div>
-        <div class="projects">
+        <article class="project-card" data-category="backend">
+      <h5>REST API in PHP</h5>
+      <p>API built with PHP and MySQL for CRUD operations.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">View Live</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </article>
 
-        </div>
-        <div class="projects">
+          <article class="project-card" data-category="fullstack">
+      <h5>E-Commerce Store</h5>
+      <p>Fullstack PHP, MySQL, and vanilla JS e-commerce web app.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">View Live</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </article>
 
-        </div>
-        <div class="projects">
+          <article class="project-card" data-category="fullstack">
+      <h5>E-Commerce Store</h5>
+      <p>Fullstack PHP, MySQL, and vanilla JS e-commerce web app.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">View Live</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </article>
 
+          <article class="project-card" data-category="fullstack">
+      <h5>E-Commerce Store</h5>
+      <p>Fullstack PHP, MySQL, and vanilla JS e-commerce web app.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">View Live</a>
+        <a href="#" target="_blank">GitHub</a>
         </div>
+    </article>
+        </div>
+        
     </section>
     <section id="contact-me"></section>
     </main>

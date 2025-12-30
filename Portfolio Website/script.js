@@ -19,41 +19,27 @@ toggleBtn.addEventListener("click", () => {
 })
 
 //Animating roles 
-const roles = ['Full-Stack Developer', 'Frontend Developer', 'Backend Developer', 'UI/UX Designer'];
+const roles = ['FullStack Developer', 'Frontend Developer', 'Backend Developer', 'UI/UX Designer'];
 const rolesSpan = document.getElementById('roles');
 let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+function showNextRole() {
+  rolesSpan.classList.remove('show');
 
-function typeRole() {
-    const currentRole = roles[roleIndex];
-    
-    if (isDeleting) {
-        rolesSpan.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        rolesSpan.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-    }
-    
-    let waitTime = 100;
-    if (!isDeleting && charIndex === currentRole.length) {
-        waitTime = 2000; // Pause at full word
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        waitTime = 500;
-    }
-    
-    setTimeout(typeRole, waitTime);
+  setTimeout(() => {
+    rolesSpan.textContent = roles[roleIndex];
+    rolesSpan.classList.add('show');
+
+    roleIndex = (roleIndex + 1) % roles.length;
+  }, 300); 
 }
+rolesSpan.textContent = roles[0];
+rolesSpan.classList.add('show');
+roleIndex = 1;
 
-typeRole();
+setInterval(showNextRole, 4000);
 
 
 // Toggle extra content in services section
-
 const toggleButtons = document.querySelectorAll('.toggle-btn');
 toggleButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -64,3 +50,70 @@ toggleButtons.forEach(button => {
             : 'Show Less';
     });
 });
+
+// Project filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // 1. Active state on buttons
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. Get filter value
+    const filter = btn.dataset.filter; 
+
+    projectCards.forEach(card => {
+      const category = card.dataset.category; 
+
+      if (filter === 'all' || filter === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+// Smooth scrolling for nav links
+// About
+const aboutShow = document.getElementById('about-show');
+const aboutSection = document.getElementById('about-me');
+
+aboutShow.addEventListener('click', () => {
+  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+// Skills
+const skillShow = document.getElementById('skill-show');
+const skillsSection = document.getElementById('skills');
+
+skillShow.addEventListener('click', () => {
+  skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+// Services
+const serviceShow = document.getElementById('service-show');
+const servicesSection = document.getElementById('services');
+
+serviceShow.addEventListener('click', () => {
+  servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+// Projects
+const projectsShow = document.getElementById('projects-show');
+const projectsSection = document.getElementById('projects');
+
+projectsShow.addEventListener('click', () => {
+  projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+// Contact
+const contactShow = document.getElementById('contact-show');
+const contactSection = document.getElementById('contact');
+
+contactShow.addEventListener('click', () => {
+  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+
