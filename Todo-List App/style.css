@@ -1,0 +1,141 @@
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-app {
+  background-color: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+.todo-app:hover{
+    box-shadow: 0 0 4px rgb(76, 101, 175);
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #4c90af;
+    border-left: 5px solid #4c90af;
+}
+
+.todo-app h1 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+#todo-input:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 135, 175, 0.795);
+    border: 1px solid #4c90af;
+}
+
+#todo-form button {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #4c90af;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+#todo-form button:hover {
+    background-color: #3b7c99;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+#todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox */
+.todo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* Task text */
+.todo-text {
+  flex: 1;
+}
+
+/* Completed style */
+.completed .todo-text {
+  text-decoration: line-through;
+  color: #9aa5b1;
+}
+
+/* Action buttons */
+.todo-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #4CAF50;
+  margin-left: 0.25rem;
+}
+.todo-actions button.edit-btn {
+  color: #ffffff;
+  background-color: #4caf50;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 0.25rem;
+}
+
+.todo-actions button.edit-btn:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+.todo-actions button.delete-btn {
+  color: #ffffff;
+  background-color: #e53935;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 0.25rem;
+}
+.todo-actions button.delete-btn:hover {
+    background-color: #c62828;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
