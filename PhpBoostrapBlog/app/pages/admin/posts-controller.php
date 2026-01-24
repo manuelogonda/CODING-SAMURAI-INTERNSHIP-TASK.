@@ -34,7 +34,7 @@ if ($action == "add") {
     }
 
      //image validation 
-     $destination = $post['image'] ?? null;
+     $destination = null;
        $filename = null;
 
     if (!empty($_FILES['image']['name'])) {
@@ -62,7 +62,7 @@ if ($action == "add") {
       }
     }
       // when saving
-       $data['image'] = $filename;
+      //  $data['image'] = $filename;
 
     if (empty($errors)) {
       $data = [];
@@ -90,8 +90,6 @@ if ($action == "add") {
   if (!empty($_POST)) {
     if ($post) {
       $errors = [];
-
-     
 
       // title validation
       if (empty($_POST['title'])) {
@@ -181,19 +179,12 @@ if ($action == "add") {
   $select_query = "SELECT * FROM posts WHERE id = :id LIMIT 1";
   $post = querry__row($select_query, ['id' => $id]);
 
-  if (!empty($_POST)) {
-    if ($post) {
-      $errors = [];
-
-      if (empty($errors)) {
-        $data = [];
-        $data['id'] = $id;
-
+  if ($_SERVER['REQUEST_METHOD'] ==='POST') 
+    {
+        $data = ['id' => $id];
         $delete_query = "DELETE FROM posts WHERE id = :id LIMIT 1";
         querry_db($delete_query, $data);
 
         redirect(ROOT . '/admin/posts');
-      }
     }
-  }
 }

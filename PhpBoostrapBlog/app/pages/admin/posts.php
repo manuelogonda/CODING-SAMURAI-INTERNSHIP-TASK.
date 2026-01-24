@@ -11,7 +11,7 @@
       <div class="my-2">
         <label>
           <img src="<?= isset($post['image']) ? get_image($post['image']) : get_image('') ?>" 
-               alt="User Image" 
+               alt="Post Image" 
                class="mx-auto d-block image-preview-edit" 
                style="width: 300px; cursor: pointer; height: 300px; object-fit: cover;"
           >
@@ -82,7 +82,7 @@
          <div class="my-2">
           <label>
             <img src="<?= get_image($post['image']) ?>" 
-                 alt="User Image" 
+                 alt="Post Image" 
                  class="mx-auto d-block image-preview-edit" 
                  style="width: 100%; cursor: pointer; height: 150px; object-fit: cover;">
             <input onchange="display_image_edit(this.files[0])" type="file" name="image" class="d-none">
@@ -104,21 +104,28 @@
           <div class="text text-danger"><?= $errors['title'] ?></div>
         <?php endif; ?>
 
-        <div class="form-floating">
-          <select name="category_id" class="form-control my-2" id="editCategory">
-            <option value="">-- Select Category --</option>
-            <?php foreach ($categories as $cat): ?>
-              <option value="<?= $cat['id'] ?>"
-                <?= old_value('category_id', $cat['id'], $post['category_id']) ?>>
-                <?= htmlspecialchars($cat['category']) ?>
-              </option>
-            <?php endforeach; ?>
-          </select>
-          <label for="editCategory">Category</label>
+        <!-- user_id -->
+       <div class="form-floating">
+          <input value="<?= old_value('user_id', $post['user_id']) ?>" name="user_id"
+                 type="number" class="form-control my-2" id="editUserId"
+                 placeholder="User ID">
+          <label for="editUserId">User ID</label>
+        </div>
+        <?php if (!empty($errors['user_id'])): ?>
+          <div class="text text-danger"><?= $errors['user_id'] ?></div>
+        <?php endif; ?>
+
+        <!-- category_id -->
+         <div class="form-floating">
+          <input value="<?= old_value('user_id', $post['category_id']) ?>" name="category_id"
+                 type="number" class="form-control my-2" id="editCategoryId"
+                 placeholder="Post Category ID">
+          <label for="editCategoryId">Category ID</label>
         </div>
         <?php if (!empty($errors['category_id'])): ?>
           <div class="text text-danger"><?= $errors['category_id'] ?></div>
         <?php endif; ?>
+
 
         <div class="form-floating">
           <textarea name="content" class="form-control my-2" id="editContent"
@@ -190,10 +197,10 @@
       <th>Actions</th>
     </tr>
     <?php
+    if($action == 'view'){
     $limit = 6;
-      $offset = ($PAGE['current_page_number'] - 1) * $limit;
-    $selectPosts = "
-      SELECT p.id,p.title,p.content,p.date,p.image, c.category, u.username 
+    $offset = ($PAGE['current_page_number'] - 1) * $limit;
+    $selectPosts = "SELECT p.id,p.title,p.content,p.date,p.image,c.category, u.username 
       FROM posts p
       INNER JOIN categories c
       ON p.category_id = c.id 
@@ -203,7 +210,7 @@
       limit $limit offset $offset
       ";
     $posts = querry_db($selectPosts);
-    
+    }
     ?>
      <?php if(empty($posts)): ?>
       <tr><td colspan='6'>No posts found.</td></tr>;
@@ -219,7 +226,7 @@
         <td><?= esc($post['username']); ?></td>
         <td><?= esc(date("jS M, Y", strtotime($post['date'])))  ?></td>
         <td>
-              <img src="<?= get_image($post['image']) ?>" style="width: 100px; height: 100px; object-fit: cover; d-block;" alt="User Image">
+              <img src="<?= get_image($post['image']) ?>" style="width: 100px; height: 100px; object-fit: cover; d-block;" alt="Post Image">
         </td>
         <td>
           <a href="<?= ROOT; ?>/index.php?url=admin/posts/edit/<?= $post['id']; ?>" class="btn btn-sm btn-warning text-white btn-small">

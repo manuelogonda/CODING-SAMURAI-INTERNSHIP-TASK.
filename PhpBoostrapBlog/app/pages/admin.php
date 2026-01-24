@@ -9,6 +9,22 @@ $section = $url[1] ?? 'dashboard';
 $action  = $url[2] ?? 'view';
 $id      = $url[3] ?? 0;
 
+$paginated_sections = ['users', 'categories', 'posts'];
+
+// Set pagination vars (used by pages like admin/users)
+if ($page_name === 'admin' && in_array($section, $paginated_sections, true) && 
+     ($action === 'view' || $action === '' || $action === null)) {
+         $base = ROOT . "/index.php?url=admin/{$section}";
+         $PAGE = get_pagination($base);
+} else {
+    $PAGE = [
+        'current_page_number' => 1,
+        'first_page_link'     => '',
+        'prev_page_link'      => '',
+        'next_page_link'      => '',
+    ];
+}
+
 $file_name = __DIR__ . "/admin/" . $section . ".php";
 if (!is_file($file_name)) {
   $filename = __DIR__ . "/admin/404.php";

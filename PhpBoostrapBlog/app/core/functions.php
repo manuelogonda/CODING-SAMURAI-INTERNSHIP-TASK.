@@ -75,7 +75,7 @@ function get_image($image)
 }
 
 // pagination function
-function get_pagination()
+function get_pagination(string $base)
 {
     $page_number = $_GET['page'] ?? 1;
     $page_number = empty($page_number) ? 1 : (int)$page_number;
@@ -83,7 +83,6 @@ function get_pagination()
     $next_page_number = $page_number + 1;
     $prev_page_number = $page_number > 1 ? $page_number - 1 : 1;
 
-    $base = ROOT . "/index.php?url=admin/users";
 
     $result = [
         'current_page_number' => $page_number,
