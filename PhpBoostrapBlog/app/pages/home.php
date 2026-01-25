@@ -18,8 +18,8 @@
       ORDER BY p.id limit 4";
         $posts = querry_db($query);
         if($posts){
-          foreach($posts as $Post){
-           require_once __DIR__ .  '../includes/post-card.php';
+          foreach($posts as $post){
+           require __DIR__ .  '../includes/post-card.php';
            }
         }else{
           echo "No items found!";

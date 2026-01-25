@@ -35,7 +35,8 @@ if ($action == "add") {
 
      //image validation 
      $destination = null;
-       $filename = null;
+     $filename = null;
+      //  var_dump($_FILES['image']); exit;
 
     if (!empty($_FILES['image']['name'])) {
       $allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/jpg'];
@@ -61,9 +62,9 @@ if ($action == "add") {
         $errors['image'] = "Image format not supported, please upload jpg, jpeg, png, webp or gif.";
       }
     }
-      // when saving
-      //  $data['image'] = $filename;
+   
 
+      // when saving
     if (empty($errors)) {
       $data = [];
       $data['title']       = $_POST['title'];
@@ -78,6 +79,8 @@ if ($action == "add") {
       querry_db($insert_query, $data);
 
       redirect(ROOT . '/admin/posts');
+      
+    
     }
   }
 
@@ -156,7 +159,7 @@ if ($action == "add") {
         $data['category_id'] = $_POST['category_id'];
         $data['user_id']     = $_POST['user_id'];
         $data['content']     = $_POST['content'];
-        $data['image']     = $destination;
+        $data['image']       = $destination;
         $data['id']          = $id;
 
         $update_query = "UPDATE posts

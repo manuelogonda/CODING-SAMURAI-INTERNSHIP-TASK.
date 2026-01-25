@@ -1,7 +1,7 @@
 <?php if ($action == 'add'): ?>
 
   <div class="col-md-8 mx-auto mb-4">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       <h1 class="h3 mb-3 fw-normal">Add Post</h1>
 
       <?php if (!empty($errors)): ?>
@@ -71,7 +71,7 @@
 <?php elseif ($action == 'edit'): ?>
 
   <div class="col-md-8 mx-auto mb-4">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       <h1 class="h3 mb-3 fw-normal">Edit Post</h1>
 
       <?php if (!empty($post)): ?>
@@ -188,10 +188,10 @@
       
     <tr>
       <th>#</th>
-      <th>Title</th>
+      <th>User_ID</th>
+      <th>Category_ID</th>
+      <th>TItle</th>
       <th>Content</th>
-      <th>Category</th>
-      <th>Username</th>
       <th>Date</th>
       <th>Image Posted</th>
       <th>Actions</th>
@@ -200,13 +200,8 @@
     if($action == 'view'){
     $limit = 6;
     $offset = ($PAGE['current_page_number'] - 1) * $limit;
-    $selectPosts = "SELECT p.id,p.title,p.content,p.date,p.image,c.category, u.username 
+    $selectPosts = "SELECT p.id,p.user_id,p.category_id,p.title,p.content,p.image,p.date
       FROM posts p
-      INNER JOIN categories c
-      ON p.category_id = c.id 
-      INNER JOIN users u
-      ON p.user_id = u.id 
-      ORDER BY p.id 
       limit $limit offset $offset
       ";
     $posts = querry_db($selectPosts);
@@ -220,10 +215,10 @@
     <?php foreach ($posts as $post): ?>
       <tr>
         <td><?= $post['id']; ?></td>
+        <td><?= esc($post['user_id']); ?></td>
+        <td><?= esc($post['category_id']); ?></td>
         <td><?= esc($post['title']); ?></td>
         <td><?= esc($post['content']); ?></td>
-        <td><?= esc($post['category']); ?></td>
-        <td><?= esc($post['username']); ?></td>
         <td><?= esc(date("jS M, Y", strtotime($post['date'])))  ?></td>
         <td>
               <img src="<?= get_image($post['image']) ?>" style="width: 100px; height: 100px; object-fit: cover; d-block;" alt="Post Image">

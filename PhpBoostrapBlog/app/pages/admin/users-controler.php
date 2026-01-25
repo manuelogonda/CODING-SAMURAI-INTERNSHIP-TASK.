@@ -69,8 +69,7 @@ if ($action == "add") {
         $errors['image'] = "Image format not supported, please upload jpg, jpeg, png, webp or gif.";
       }
     }
-      // when saving
-       $data['image'] = $filename;
+     
 
     if (empty($errors)) {
       // save to database
