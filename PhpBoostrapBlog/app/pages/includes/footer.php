@@ -18,19 +18,29 @@
                   </ul>
               </div>
               <div class="col-md-5 offset-md-1 mb-3">
-                  <form>
+                  <form method="post" action="<?= ROOT ?>/index.php?url=home">
                       <h5>Subscribe to our newsletter</h5>
                       <p>Monthly digest of what's new and exciting from us.</p>
                       <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                           <label for="newsletter1" class="visually-hidden">Email address</label>
                           <input
                               id="newsletter1"
+                              name="subscribe_email"
                               type="email"
                               class="form-control"
                               placeholder="Email address" />
-                          <button class="btn btn-primary" type="button">Subscribe</button>
+                          <button class="btn btn-primary" type="submit" name="subscribe_submit">Subscribe</button>
                       </div>
                   </form>
+                  <?php if ($subscribe_success): ?>
+  <div class="text-success">
+    Thank you for subscribing!
+  </div>
+<?php elseif ($subscribe_error): ?>
+  <div class="text-danger">
+    <?= htmlspecialchars($subscribe_error, ENT_QUOTES, 'UTF-8') ?>
+  </div>
+<?php endif; ?>
               </div>
           </div>
           <div

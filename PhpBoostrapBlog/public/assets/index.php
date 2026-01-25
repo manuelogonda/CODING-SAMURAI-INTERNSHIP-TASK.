@@ -2,11 +2,12 @@
 session_start();
 require_once __DIR__ . '/../../app/core/init.php';
 
-$url = $_GET['url'] ?? 'home';
-$url = strtolower(trim($url, '/'));
-$url = explode('/', $url);
+$url_string = $_GET['url'] ?? 'home';
+// $url = strtolower(trim($url, '/'));
+// $url = explode('/', $url);
+$url        = explode('/', trim($url_string, '/'));
 
-$page_name = trim($url[0]);
+$page_name = trim($url[0]) ?? 'home';
 
 $basePath  = BASE_PATH . '/app/pages/';
 $file_path = $basePath . $page_name . '.php';
@@ -28,6 +29,10 @@ switch ($page_name) {
     case 'contact':
         require_once   __DIR__ . '/../../app/pages/contact.php';
         break;
+    
+    case 'post':
+    require_once __DIR__ . '/../../app/pages/blog-single.php';
+    break;
 
     default:
         require_once   __DIR__ . '/../../app/pages/404.php';

@@ -11,7 +11,7 @@
                     <?= esc($post['content']) ?>
                   </p>
                   <a
-                      href="#"
+                      href="<?= ROOT ?>/index.php?url=post/<?= $post['id']?>"
                       class="icon-link gap-1 icon-link-hover stretched-link">
                       Continue reading
                       <svg class="bi" aria-hidden="true">
@@ -20,10 +20,12 @@
                   </a>
               </div>
               <div class="col-lg-5 d-lg-block">
-                  <img src="<?= get_image($post['image']) ?>"
+                <a href="<?= ROOT ?>/index.php?url=post/<?= $post['id']?>">
+                  <img src="<?= esc(get_image($post['image'])) ?>"
                       alt="a post Image" height="250"
                       style="object-fit: cover;"
                       class="w-100 w-lg-50 h-100">
+                      </a>
               </div>
           </div>
       </div>

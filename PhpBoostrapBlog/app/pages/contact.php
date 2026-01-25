@@ -84,6 +84,7 @@ function old_value_contact($key)
     <!-- Custom styles for this template -->
     <link href="<?= ROOT;?>/css/signin.css" rel="stylesheet">
   </head>
+  
   <body class="text-center">
 <div class="container my-5">
   <div class="row">
@@ -164,6 +165,7 @@ function old_value_contact($key)
         <?php endif; ?>
 
         <button type="submit" class="btn btn-primary">Send Message</button>
+        
       </form>
 
     </div>

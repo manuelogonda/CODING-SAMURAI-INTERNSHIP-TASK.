@@ -223,7 +223,7 @@ function create_tables()
     );";
     $stmt = $pdo->prepare($create_posts_table);
     $stmt->execute();
-
+//contacts
    $contacts_table = "CREATE TABLE IF NOT EXISTS contacts (
   id        INT AUTO_INCREMENT PRIMARY KEY,
   name      VARCHAR(100)    NOT NULL,
@@ -233,6 +233,15 @@ function create_tables()
   created_at TIMESTAMP      DEFAULT CURRENT_TIMESTAMP
 );";
 $stmt = $pdo->prepare($contacts_table);
+$stmt->execute();
+
+//subscribers
+$subscribers = "CREATE TABLE IF NOT EXISTS subscribers (
+  id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  email      VARCHAR(150) NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
+);";
+$stmt = $pdo->prepare($subscribers);
 $stmt->execute();
 }
 
