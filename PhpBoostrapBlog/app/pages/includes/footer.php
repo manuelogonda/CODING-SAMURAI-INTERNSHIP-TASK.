@@ -13,7 +13,7 @@
                       </li>
 
                       <li class="nav-item mb-2">
-                          <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+                          <a href="<?= ROOT ?>/index.php?url=contact" class="nav-link p-0 text-body-secondary">Contact</a>
                       </li>
                   </ul>
               </div>

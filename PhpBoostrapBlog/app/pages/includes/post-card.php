@@ -20,7 +20,7 @@
                   </a>
               </div>
               <div class="col-lg-5 d-lg-block">
-                  <img src="<?= get_image($post['image']) ?>
+                  <img src="<?= get_image($post['image']) ?>"
                       alt="a post Image" height="250"
                       style="object-fit: cover;"
                       class="w-100 w-lg-50 h-100">
