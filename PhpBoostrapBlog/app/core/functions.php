@@ -223,6 +223,17 @@ function create_tables()
     );";
     $stmt = $pdo->prepare($create_posts_table);
     $stmt->execute();
+
+   $contacts_table = "CREATE TABLE IF NOT EXISTS contacts (
+  id        INT AUTO_INCREMENT PRIMARY KEY,
+  name      VARCHAR(100)    NOT NULL,
+  email     VARCHAR(150)    NOT NULL,
+  subject   VARCHAR(200)    NOT NULL,
+  message   TEXT            NOT NULL,
+  created_at TIMESTAMP      DEFAULT CURRENT_TIMESTAMP
+);";
+$stmt = $pdo->prepare($contacts_table);
+$stmt->execute();
 }
 
 create_tables();
