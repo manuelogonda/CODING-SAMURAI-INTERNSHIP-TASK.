@@ -118,8 +118,11 @@
           <li><a href="<?= ROOT ?>/index.php?url=admin" class="nav-link px-2 link-dark">Admin</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <form method="post" action="<?= ROOT ?>/index.php?url=search"  class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+          </div>
         </form>
 
        

@@ -3,11 +3,10 @@ session_start();
 require_once __DIR__ . '/../../app/core/init.php';
 
 $url_string = $_GET['url'] ?? 'home';
-// $url = strtolower(trim($url, '/'));
-// $url = explode('/', $url);
 $url        = explode('/', trim($url_string, '/'));
 
 $page_name = trim($url[0]) ?? 'home';
+$sub_page  = $url[1] ?? null;
 
 $basePath  = BASE_PATH . '/app/pages/';
 $file_path = $basePath . $page_name . '.php';
@@ -19,7 +18,11 @@ switch ($page_name) {
         break;
 
     case 'home':
-        require_once  __DIR__ . '/../../app/pages/home.php';
+       require_once  __DIR__ .  '/../../app/pages/home.php';
+        break;
+
+     case 'search':
+        require_once  __DIR__ . '/../../app/pages/search.php';
         break;
 
     case 'blog':

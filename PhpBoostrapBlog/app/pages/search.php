@@ -1,9 +1,10 @@
-<?php
-$limit  = $PAGE['limit'];
-$offset = $PAGE['offset'];
+<div class="mx-auto col-md-6 justify-content-center">
+  <h3 class="mx-2 text-center">Search Result</h3>
 
-$term  = $_POST['find'] ?? '';    
-$posts = [];
+<?php
+// var_dump($_SERVER['REQUEST_METHOD'], $_POST);
+$term  = $_POST['search'] ?? '';    
+$post = [];
 
 if ($term !== '') {
 
@@ -17,10 +18,41 @@ if ($term !== '') {
       INNER JOIN categories AS c ON p.category_id = c.id
       WHERE p.title   LIKE :find
          OR p.content LIKE :find
-      ORDER BY p.id DESC
-      LIMIT $limit OFFSET $offset
+      LIMIT 1
     ";
 
-    $posts = querry_db($sql, ['find' => $like]);
+    $post = querry__row($sql, ['find' => $like]);
 }
+
+
 ?>
+
+<?php if ($post): ?>
+
+  <div class="col-md-8 col-lg-6">
+    <div class="card mb-4">
+      <img src="<?= htmlspecialchars(get_image($post['image'])) ?>"
+           class="card-img-top search-img"
+           alt="Post image">
+      <div class="card-body">
+        <h3 class="card-title h5"><?= htmlspecialchars($post['title']) ?></h3>
+        <p class="text-muted mb-2 small">
+          <?= htmlspecialchars($post['date']) ?> ·
+          <?= htmlspecialchars($post['username']) ?> ·
+          <span class="badge text-bg-primary">
+            <?= htmlspecialchars($post['category']) ?>
+          </span>
+        </p>
+        <p class="card-text text-truncate">
+          <?= nl2br(htmlspecialchars($post['content'])) ?>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php elseif ($term !== ''): ?>
+
+  <div class="alert alert-warning">No post found for that search.</div>
+
+<?php endif; ?>
