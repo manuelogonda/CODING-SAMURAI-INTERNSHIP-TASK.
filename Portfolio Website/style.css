@@ -9,8 +9,6 @@
   --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-
-
 h1, h2, h3, h4, #name, .projects-h3, .projets-h4 {
   font-family: var(--font-heading);
   letter-spacing: 0.03em;
@@ -41,7 +39,7 @@ body {
     gap: 2rem;
 }
 #nav-links ul li {
-    cursor: pointer; 
+    cursor: pointer;
     padding: 0.5rem 1rem;
     font-size: 1.4rem;
     color: #2c3e50;
@@ -77,7 +75,7 @@ body {
 
 #introduction {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
     padding: 6rem 2rem;
@@ -88,12 +86,10 @@ body {
     background-color: rgba(0,0,0,0.1);
 }
 
-
-
 #introduction > div {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; 
+    gap: 1.5rem;
 }
 #summary-what-i-do > p{
     font-size: 2rem;
@@ -102,7 +98,6 @@ body {
     margin-bottom: 1rem;
     letter-spacing: 1px;
 }
-
 
 #summary-about-myself > p {
     font-size: clamp(3.5rem, 4vw, 4rem);
@@ -162,13 +157,12 @@ body {
 }
 
 .bgdark #social-links svg {
-    fill: #81C784; 
+    fill: #81C784;
 }
 
 .bgdark #social-links a:hover {
     background-color: rgba(129, 199, 132, 0.2);
 }
-
 
 #summary-about-myself{
     display: flex;
@@ -192,7 +186,7 @@ body {
     border-radius: 4px;
 }
 .hire-btn:hover{
- background-color: #09880d;
+  background-color: #09880d;
 }
 .bgdark{
     background-color: rgba(26, 26, 26, 0.95);
@@ -201,11 +195,10 @@ body {
 
 /*My Profile image styling*/
 
-
 .profile-photo img {
-    object-fit: cover; 
+    object-fit: cover;
     display: block;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     border-radius: 14px;
     overflow: hidden;
@@ -331,7 +324,7 @@ body {
     overflow: hidden;
     transition: max-height 0.4s ease-out;
     margin: 1rem 0;
-    
+   
 }
 .extra-content:not(.expanded) {
     max-height: 250px; /* Adjust based on content */
@@ -575,4 +568,224 @@ body {
 .bgdark .cv-btn{
   color: #ffffff;
   background-color: #81C784;
+}
+
+/* Hamburger Menu Styles */
+#mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+#mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.bgdark #mobile-menu-toggle span {
+    background-color: #ecf0f1;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+#mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#mobile-menu.active {
+    left: 0;
+}
+
+#mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+#mobile-menu ul li {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+#mobile-menu ul li:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    transform: translateX(10px);
+}
+
+.bgdark #mobile-menu {
+    background-color: rgba(26, 26, 26, 0.98);
+}
+
+.bgdark #mobile-menu ul li:hover {
+    background-color: rgba(76, 175, 80, 0.2);
+}
+
+/*Responsive design*/
+@media (max-width: 1024px) {
+    #introduction, #about-me {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    #services, #skills {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    #projects .projects {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    #nav-links > ul {
+        gap: 1rem;
+    }
+    
+    #nav-links ul li {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #nav-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: relative;
+    }
+    
+    #nav-links {
+        display: none;
+    }
+    
+    #nav-buttons {
+        display: none;
+    }
+    
+    #name {
+        font-size: 1.1rem;
+    }
+    
+    #introduction {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+    }
+    
+    #summary-about-myself > p {
+        font-size: clamp(2.5rem, 8vw, 3rem);
+    }
+    
+    #roles {
+        font-size: 2.5rem;
+        min-width: 150px;
+        margin-left: 0.5rem;
+    }
+    
+    #services, #skills {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+    }
+    
+    #projects .projects {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projects-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .projects-sections {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .about-h2, .service-h3, .skills-h3, .projets-h4, #about-me-text h3 {
+        font-size: 2.2rem;
+    }
+    
+    #about-me {
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav-bar {
+        padding: 1rem;
+    }
+    
+    #introduction, #about-me, #services, #skills, #projects {
+        padding: 2rem 1rem;
+    }
+    
+    #summary-what-i-do > p {
+        font-size: 1.6rem;
+    }
+    
+    #roles {
+        font-size: 2rem;
+        min-height: 4rem;
+    }
+    
+    .about-h2, .service-h3, .skills-h3, .projets-h4, #about-me-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .about-p, #about-me-text p, .service-p {
+        font-size: 1.3rem;
+    }
+    
+    #social-links a {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .projects-h3 {
+        font-size: 2rem;
+    }
 }

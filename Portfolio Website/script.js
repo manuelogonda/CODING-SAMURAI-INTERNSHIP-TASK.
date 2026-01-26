@@ -110,10 +110,38 @@ projectsShow.addEventListener('click', () => {
 
 // Contact
 const contactShow = document.getElementById('contact-show');
-const contactSection = document.getElementById('contact');
+const contactSection = document.getElementById('footer');
 
 contactShow.addEventListener('click', () => {
   contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+
+// // Mobile menu toggle
+// const mobileToggle = document.getElementById('mobile-menu-toggle');
+// const mobileMenu = document.getElementById('mobile-menu');
+
+// mobileToggle.addEventListener('click', () => {
+//     mobileToggle.classList.toggle('active');
+//     mobileMenu.classList.toggle('active');
+//     body.classList.toggle('menu-open'); // Prevent body scroll when menu open
+// });
+
+// // Close menu when clicking nav items
+// document.querySelectorAll('#mobile-menu ul li').forEach(item => {
+//     item.addEventListener('click', () => {
+//         mobileToggle.classList.remove('active');
+//         mobileMenu.classList.remove('active');
+//         body.classList.remove('menu-open');
+//     });
+// });
+
+// // Close menu on resize to desktop
+// window.addEventListener('resize', () => {
+//     if (window.innerWidth > 768) {
+//         mobileToggle.classList.remove('active');
+//         mobileMenu.classList.remove('active');
+//         body.classList.remove('menu-open');
+//     }
+// });
 
 
