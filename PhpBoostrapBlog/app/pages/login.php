@@ -62,7 +62,7 @@ if (!empty($_POST)) {
   <main class="form-signin">
     <form method="post">
       <a href="index.php?url=home">
-        <img class="mb-4 rounded-circle shadow" src="<?= ROOT; ?>/images/biemdoubleyulogo.jpg" alt="a work station" width="192" height="177" style="object-fit: cover;">
+        <img class="mb-4 rounded-circle shadow" src="<?= ROOT; ?>/images/manulogo.png" alt="my logo" width="192" height="177" style="object-fit: cover;">
       </a>
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       <?php if (!empty($errors)): ?>

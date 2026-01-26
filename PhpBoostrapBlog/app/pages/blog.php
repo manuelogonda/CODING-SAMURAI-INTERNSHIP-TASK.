@@ -2,7 +2,7 @@
  
 
     <main class="my-2">
-        <h3 class="mx-2" class="jutify-content-center" >Featured Blogs</h3>
+        <h3 class="mx-2 text-center">Featured Blogs</h3>
         <?php
         $base_link = ROOT . "/index.php?url=home";
         $PAGE = get_pagination($base_link);

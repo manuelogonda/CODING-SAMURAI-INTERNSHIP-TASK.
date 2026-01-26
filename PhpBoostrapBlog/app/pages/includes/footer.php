@@ -11,6 +11,9 @@
                       <li class="nav-item mb-2">
                           <a href="<?= ROOT; ?>/index.php?url=login" class="nav-link p-0 text-body-secondary">Login</a>
                       </li>
+                      <li class="nav-item mb-2">
+                          <a href="<?= ROOT; ?>/index.php?url=signup" class="nav-link p-0 text-body-secondary">SignUp</a>
+                      </li>
 
                       <li class="nav-item mb-2">
                           <a href="<?= ROOT ?>/index.php?url=contact" class="nav-link p-0 text-body-secondary">Contact</a>

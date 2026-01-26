@@ -36,7 +36,11 @@ if ($id > 0) {
       </button>
       </a>
     </div>
-
+    <h3 class="mx-2 text-center">Post Single View</h3>
+<div class="row justify-content-center">
+    <div class="col-sm-10 col-md-8 col-lg-5">
+      <div class="card mb-3 shadow-sm">
+         <div class="card-body py-3">
     <h1 class="mb-3"><?= htmlspecialchars($post['title']) ?></h1>
 
     <p class="text-muted mb-2">
@@ -51,13 +55,17 @@ if ($id > 0) {
       <img
         src="<?= htmlspecialchars(get_image($post['image'])) ?>"
         alt="Post image"
-        class="img-fluid"
+        class="card-img-top single-img"
         style="max-height: 400px; object-fit: cover;"
       >
     </div>
 
     <div class="fs-5">
       <?= nl2br(htmlspecialchars($post['content'])) ?>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
   <?php endif; ?>

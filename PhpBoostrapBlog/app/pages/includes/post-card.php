@@ -8,7 +8,7 @@
                   <div class="mb-1 text-body-secondary"><?= esc(date("jS M, Y", strtotime($post['date']))) ?></div>
                   <div class="mb-1 text-body-secondary"><?= esc($post['username']) ?></div>
                   <p class="card-text mb-auto">
-                    <?= esc($post['content']) ?>
+                    <?= mb_substr(esc($post['content']),0,150) ?>
                   </p>
                   <a
                       href="<?= ROOT ?>/index.php?url=post/<?= $post['id']?>"
@@ -25,7 +25,7 @@
                       alt="a post Image" height="250"
                       style="object-fit: cover;"
                       class="w-100 w-lg-50 h-100">
-                      </a>
+                 </a>
               </div>
           </div>
       </div>

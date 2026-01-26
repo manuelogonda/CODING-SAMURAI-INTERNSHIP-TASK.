@@ -21,6 +21,14 @@ switch ($page_name) {
        require_once  __DIR__ .  '/../../app/pages/home.php';
         break;
 
+    case 'login':
+        require_once __DIR__ . '/../../app/pages/login.php';
+        break;
+
+    case 'signup':
+        require_once __DIR__ . '/../../app/pages/signup.php';
+        break;
+
      case 'search':
         require_once  __DIR__ . '/../../app/pages/search.php';
         break;
@@ -34,7 +42,7 @@ switch ($page_name) {
         break;
     
     case 'post':
-    require_once __DIR__ . '/../../app/pages/blog-single.php';
+    require_once __DIR__ . '/../../app/pages/post.php';
     break;
 
     default:
