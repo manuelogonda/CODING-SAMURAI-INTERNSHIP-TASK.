@@ -116,32 +116,30 @@ contactShow.addEventListener('click', () => {
   contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// // Mobile menu toggle
-// const mobileToggle = document.getElementById('mobile-menu-toggle');
-// const mobileMenu = document.getElementById('mobile-menu');
+// Mobile Hamburger Menu
+const mobileToggle = document.getElementById('mobile-menu-toggle');
+const navLinks = document.getElementById('nav-links');
 
-// mobileToggle.addEventListener('click', () => {
-//     mobileToggle.classList.toggle('active');
-//     mobileMenu.classList.toggle('active');
-//     body.classList.toggle('menu-open'); // Prevent body scroll when menu open
-// });
+mobileToggle.addEventListener('click', () => {
+  mobileToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
 
-// // Close menu when clicking nav items
-// document.querySelectorAll('#mobile-menu ul li').forEach(item => {
-//     item.addEventListener('click', () => {
-//         mobileToggle.classList.remove('active');
-//         mobileMenu.classList.remove('active');
-//         body.classList.remove('menu-open');
-//     });
-// });
+// Close menu on link click
+navLinks.querySelectorAll('li').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
 
-// // Close menu on resize to desktop
-// window.addEventListener('resize', () => {
-//     if (window.innerWidth > 768) {
-//         mobileToggle.classList.remove('active');
-//         mobileMenu.classList.remove('active');
-//         body.classList.remove('menu-open');
-//     }
-// });
-
-
+// Smooth scroll for nav links (bonus, like garage)
+navLinks.querySelectorAll('li').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const targetId = e.target.id.replace('-show', '');
+    const targetSection = document.getElementById(targetId) || document.querySelector(`[id*="${targetId}"]`);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});

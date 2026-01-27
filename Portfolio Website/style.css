@@ -605,57 +605,61 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Mobile Menu Overlay */
-#mobile-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: left 0.3s ease;
+/* Mobile Hamburger Menu */
+@media (max-width: 768px) {
+  #nav-links,
+  #nav-buttons {
+    display: none;
+  }
+  
+  #mobile-menu-toggle {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-}
-
-#mobile-menu.active {
-    left: 0;
-}
-
-#mobile-menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-}
-
-#mobile-menu ul li {
-    font-size: 1.8rem;
-    padding: 1rem 2rem;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
     cursor: pointer;
-    border-radius: 8px;
+  }
+  
+  #mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-color); 
+    border-radius: 10px;
     transition: all 0.3s ease;
-    font-family: var(--font-body);
-}
-
-#mobile-menu ul li:hover {
-    background-color: rgba(76, 175, 80, 0.1);
-    transform: translateX(10px);
-}
-
-.bgdark #mobile-menu {
-    background-color: rgba(26, 26, 26, 0.98);
-}
-
-.bgdark #mobile-menu ul li:hover {
-    background-color: rgba(76, 175, 80, 0.2);
+    transform-origin: left center;
+  }
+  
+  /* Active hamburger → X animation */
+  #mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+  
+  #mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+  
+  /* Mobile menu slide down */
+  #nav-links.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color); 
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  #nav-links.active ul {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
 
 /*Responsive design*/
@@ -755,6 +759,9 @@ body {
 }
 
 @media (max-width: 480px) {
+    #mobile-menu-toggle {
+    display: block;
+    }
     #nav-bar {
         padding: 1rem;
     }
